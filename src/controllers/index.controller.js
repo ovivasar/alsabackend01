@@ -18,7 +18,9 @@ const pool = new Pool({
 });
 
 const getUsers = async (req, res) => {
+    console.log("antes de conectar")
     const response = await pool.query('SELECT * FROM mad_usuario ORDER BY id_usuario ASC');
+    console.log("luego de conectar")
     res.status(200).json(response.rows);
 };
 
